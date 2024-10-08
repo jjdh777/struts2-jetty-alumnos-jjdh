@@ -3,8 +3,7 @@ package org.demo.actions.beans;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Alumno implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Alumno  {
 
     private String dni;
     private String nombre;
