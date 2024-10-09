@@ -130,4 +130,19 @@ public class Alumno  {
                 ", observaciones='" + observaciones + '\'' +
                 '}';
     }
+
+    public boolean isCursoNotCorrect(){
+         if ((Integer.parseInt(this.curso)<0 || (Integer.parseInt(this.curso)>3))){
+             return true;}
+        else{
+            return false;
+        }
+    }
+    public boolean isGradoNotCorrect(){
+        if ((Integer.parseInt(this.grado)<0 || (Integer.parseInt(this.grado)>3))){
+            return true;}
+        else{
+            return false;
+        }
+    }
 }

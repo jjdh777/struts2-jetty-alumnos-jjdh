@@ -27,4 +27,58 @@ public class AltaAlumnoAction extends ActionSupport {
     public int getNumeroAlumnos() {
         return numeroAlumnos;
     }
+
+    public void validate() {
+        if (alumno.getDni().isEmpty()) {
+            addFieldError("alumno.dni", "El DNI es obligatorio.");
+        }
+        if (alumno.getDni().length()!=9) {
+            addFieldError("alumno.dni", "El DNI debe tener 9 dígitos.");
+        }
+        if (alumno.getNombre().isEmpty()) {
+            addFieldError("alumno.nombre", "El NOMBRE es obligatorio.");
+        }
+        if (alumno.getNombre().length()<4) {
+            addFieldError("alumno.nombre", "El NOMBRE debe tener mas de 4 caracteres.");
+        }
+        if (alumno.getApellido().isEmpty()) {
+            addFieldError("alumno.apellido", "El APELLIDO es obligatorio.");
+        }
+        if (alumno.getApellido().length()<4) {
+            addFieldError("alumno.apellido", "El APELLIDO debe tener mas de 4 caracteres.");
+        }
+        if (alumno.getDireccion().isEmpty()) {
+            addFieldError("alumno.direccion", "La DIRECCION es obligatoria.");
+        }
+        if (alumno.getTelefono().isEmpty()) {
+            addFieldError("alumno.telefono", "El TELEFONO es obligatorio.");
+        }
+        if (alumno.getTelefono().length()!=9) {
+            addFieldError("alumno.telefono", "El TELEFONO debe tener 9 cifras.");
+        }
+        if (alumno.getEmail().isEmpty()) {
+            addFieldError("alumno.email", "El EMAIL es obligatorio.");
+        }
+        if (alumno.getFechaNacimiento().isEmpty()) {
+            addFieldError("alumno.fechaNacimiento", "La FECHA DE NACIMIENTO es obligatoria.");
+        }
+        if (alumno.getCurso().isEmpty()) {
+            addFieldError("alumno.curso", "El CURSO es obligatorio.");}
+        else{
+            if (alumno.isCursoNotCorrect()){
+                addFieldError("alumno.curso", "El CURSO deber ser 1,2 o 3.");
+            }
+        }
+        if (alumno.getGrado().isEmpty()) {
+            addFieldError("alumno.grado", "El GRADO es obligatorio.");}
+        else{
+            if (alumno.isGradoNotCorrect()){
+                addFieldError("alumno.grado", "El GRADO deber ser 1,2 o 3.");
+            }
+        }
+        // Es opcional.
+        //if (alumno.getObservaciones().isEmpty()) {
+        //  addFieldError("alumno.observaciones", "Las Observaciones son obligatorias.");
+        //}
+    }
 }
