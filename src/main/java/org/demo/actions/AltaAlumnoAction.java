@@ -65,15 +65,25 @@ public class AltaAlumnoAction extends ActionSupport {
         if (alumno.getCurso().isEmpty()) {
             addFieldError("alumno.curso", "El CURSO es obligatorio.");}
         else{
-            if (alumno.isCursoNotCorrect()){
-                addFieldError("alumno.curso", "El CURSO deber ser 1,2 o 3.");
+            if (!alumno.isCursoNumeric()) {
+                addFieldError("alumno.curso", "El CURSO deber ser un número.");
+            }
+            else {
+                if (alumno.isCursoNotCorrect()) {
+                    addFieldError("alumno.curso", "El CURSO deber ser 1,2 o 3.");
+                }
             }
         }
         if (alumno.getGrado().isEmpty()) {
             addFieldError("alumno.grado", "El GRADO es obligatorio.");}
         else{
-            if (alumno.isGradoNotCorrect()){
-                addFieldError("alumno.grado", "El GRADO deber ser 1,2 o 3.");
+            if (!alumno.isGradoNumeric()) {
+                addFieldError("alumno.grado", "El GRADO deber ser un número.");
+            }
+            else {
+                if (alumno.isGradoNotCorrect()) {
+                    addFieldError("alumno.grado", "El GRADO deber ser 1,2 o 3.");
+                }
             }
         }
         // Es opcional.

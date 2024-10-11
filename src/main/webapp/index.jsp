@@ -5,8 +5,12 @@
     <title>Gestión de Alumnos</title>
 </head>
 <body>
+
+   <s:actionerror />
+
     <h1>Buscar Alumno por DNI:</h1>
     <s:form action="buscarAlumno">
+
         <s:textfield name="dni" label="Introducir DNI" />
         <s:submit value="Buscar" />
     </s:form>

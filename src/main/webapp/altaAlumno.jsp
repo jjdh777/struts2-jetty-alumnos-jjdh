@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>Alta de Alumno</h1>
+    <s:actionerror />
     <s:form action="altaAlumno">
         <s:fielderror fieldName = "alumno.dni" />
         <s:textfield name="alumno.dni" label="DNI" />

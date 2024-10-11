@@ -10,13 +10,20 @@ public class BuscarAlumnoAction extends ActionSupport {
     private int numeroAlumnos;
 
     public String execute() {
-        alumno = AlumnoService.buscarAlumnoPorDNI(dni);
-        numeroAlumnos = AlumnoService.getNumeroAlunmos();
-        if (alumno != null) {
-            return SUCCESS;
-        } else {
-            addActionError("Alumno no encontrado");
+        if (dni == "") {
+            addActionError("Error: DNI no puede ser nulo.");
             return INPUT;
+
+        } else {
+            alumno = AlumnoService.buscarAlumnoPorDNI(dni);
+            numeroAlumnos = AlumnoService.getNumeroAlunmos();
+            if (alumno != null) {
+                return SUCCESS;
+            } else {
+                addActionError("Error: Alumno no encontrado.");
+                return INPUT;
+            }
+
         }
     }
 

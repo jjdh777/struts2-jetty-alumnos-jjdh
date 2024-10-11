@@ -132,17 +132,36 @@ public class Alumno  {
     }
 
     public boolean isCursoNotCorrect(){
-         if ((Integer.parseInt(this.curso)<0 || (Integer.parseInt(this.curso)>3))){
-             return true;}
-        else{
-            return false;
+        boolean res =false;
+        if ((Integer.parseInt(this.curso) < 0 || (Integer.parseInt(this.curso) > 3))) {
+            res = true;
         }
+        return res;
     }
+
     public boolean isGradoNotCorrect(){
-        if ((Integer.parseInt(this.grado)<0 || (Integer.parseInt(this.grado)>3))){
+        boolean res =false;
+        if ((Integer.parseInt(this.grado) < 0 || (Integer.parseInt(this.grado) > 3))) {
+            res = true;
+        }
+        return res;
+    }
+
+    public boolean isCursoNumeric(){
+        try {
+            Double.parseDouble(this.curso);
             return true;}
-        else{
+        catch(NumberFormatException e){
             return false;
         }
     }
+    public boolean isGradoNumeric(){
+        try {
+            Double.parseDouble(this.grado);
+            return true;}
+        catch(NumberFormatException e){
+            return false;
+        }
+    }
+
 }
